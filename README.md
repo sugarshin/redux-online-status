@@ -36,9 +36,11 @@ const store = createStore(
 // reducer
 import { combineReducers } from 'redux'
 import { reducer as online } from 'redux-online-status'
+import { reducer as notifications } from 'react-notification-system-redux'
 
 export default combineReducers({
   online,
+  notifications,
 })
 
 // Container component
