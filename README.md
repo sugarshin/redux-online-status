@@ -69,8 +69,8 @@ export default class NotificationSystem extends PureComponent {
 
 © sugarshin
 
-[circleci-image]: https://circleci.com/gh/sugarshin/redux-online-status/tree/master.svg
-[circleci-url]: https://circleci.com/gh/sugarshin/redux-online-status/tree/master
+[circleci-image]: https://circleci.com/gh/sugarshin/redux-online-status.svg?style=svg&circle-token=df31f8d6b23e90a5f8bab6b03c50c3fdcdbab6c5
+[circleci-url]: https://circleci.com/gh/sugarshin/redux-online-status
 [codecov-image]: https://codecov.io/gh/sugarshin/redux-online-status/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/sugarshin/redux-online-status
 [npm-image]: https://img.shields.io/npm/v/redux-online-status.svg?style=flat-square
