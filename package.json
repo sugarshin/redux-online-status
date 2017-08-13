@@ -1,6 +1,6 @@
 {
   "name": "redux-online-status",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Online status enhancer for Redux.",
   "main": "lib/index.js",
   "module": "es/index.js",
