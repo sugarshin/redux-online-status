@@ -1,8 +1,13 @@
+export const getOnLine = win => {
+  if (!win) return true
+  return win.navigator.onLine
+}
+
 export const CHANGE = '@@online-status/CHANGE'
 
 export const change = online => ({ type: CHANGE, payload: online })
 
-export const reducer = (state = true, { type, payload }) => {
+export const reducer = (state = getOnLine(window), { type, payload }) => {
   if (type === CHANGE) {
     return payload
   }
@@ -10,7 +15,7 @@ export const reducer = (state = true, { type, payload }) => {
 }
 
 export const defaultCreateEventListener = ({ dispatch, getState }) => e => {
-  const { onLine } = e.target.navigator
+  const onLine = getOnLine(e.target)
   const { online: current } = getState()
   if (current !== onLine) {
     dispatch(change(onLine))

@@ -2,8 +2,25 @@ import test from 'ava'
 import { spy, stub } from 'sinon'
 import createEnhancer, * as OnlineStatus from './src'
 
-test('default import is function', t => {
+test('default import is a function', t => {
   t.is(typeof createEnhancer, 'function')
+})
+
+;[
+  {
+    subject: 'is not browser env',
+    window: undefined,
+    expected: true,
+  },
+  {
+    subject: 'returns true',
+    window,
+    expected: true,
+  },
+].forEach(({ subject, window: win, expected }) => {
+  test(`getOnLine / ${subject}`, t => {
+    t.is(OnlineStatus.getOnLine(win), expected)
+  })
 })
 
 test('action type', t => {
