@@ -22,13 +22,13 @@ example with [react-notification-system-redux](https://github.com/gor181/react-n
 ```js
 // store
 import { createStore, applyMiddleware, compose } from 'redux'
-import createOnlineEnhancer from 'redux-online-status'
+import createOnlineStatusEnhancer from 'redux-online-status'
 
 const store = createStore(
   rootReducer,
   initialState,
   compose(
-    createOnlineEnhancer(),
+    createOnlineStatusEnhancer(),
     applyMiddleware(...middlewares)
   )
 )
@@ -43,25 +43,23 @@ export default combineReducers({
   notifications,
 })
 
-// Container component
+// container component
 import React, { PureComponent } from 'react'
-import ReactNotificationSystem, { show, hide } from 'react-notification-system-redux'
+import NotificationSystem, { warning, hide } from 'react-notification-system-redux'
 import { connect } from 'react-redux'
 
-const OFFLINE = 'OFFLINE'
-
 @connect(({ notifications, online }) => ({ notifications, online }))
-export default class NotificationSystem extends PureComponent {
+export default class Notifications extends PureComponent {
   componentWillReceiveProps(nextProps) {
     if (this.props.online === true && nextProps.online === false) {
-      show({ uid: OFFLINE, message: 'Your computer seems to be offline.' })
+      warning({ uid: 'OFFLINE', message: 'Your computer seems to be offline.', autoDismiss: 0, dismissible: false })
     }
     if (this.props.online === false && nextProps.online === true) {
-      hide(OFFLINE)
+      hide('OFFLINE')
     }
   }
   render() {
-    return <ReactNotificationSystem notifications={this.props.notifications} />
+    return <NotificationSystem notifications={this.props.notifications} />
   }
 }
 ```
