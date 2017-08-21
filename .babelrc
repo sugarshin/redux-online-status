@@ -7,7 +7,8 @@
       "presets": [["es2015", { "modules": false }]],
     },
     "test": {
-      "presets": ["es2015"]
+      "presets": ["es2015"],
+      "plugins": ["rewire"]
     }
   }
 }
