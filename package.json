@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/sugarshin/redux-online-status#readme",
   "nyc": {
+    "all": true,
     "include": [
       "src"
     ]
