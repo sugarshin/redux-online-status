@@ -1,5 +1,5 @@
 const getOnLine = () => {
-  if (!window) return true
+  if (typeof window === 'undefined') return true
   return window.navigator.onLine
 }
 
